@@ -4,6 +4,7 @@ import android.graphics.PointF
 import java.util.UUID
 import kotlin.math.sqrt
 
+
 enum class LivenessStep {
     SMILE,
     BLINK,
