@@ -1,21 +1,191 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# EdgeAttend AI
 
-# Run and deploy your AI Studio app
+AI-Powered Offline Biometric Attendance System
 
-This contains everything you need to run your app locally.
+## Overview
 
-View your app in AI Studio: https://ai.studio/apps/e9f737fc-efba-4f92-b736-c0b009d089b9
+EdgeAttend AI is a secure, offline-first attendance management solution that leverages facial recognition, anti-spoof liveness detection, GPS verification, and encrypted local storage to accurately record employee attendance.
 
-## Run Locally
+Designed for businesses, factories, construction sites, warehouses, schools, and remote work locations, EdgeAttend AI operates entirely on-device and does not require constant internet connectivity.
 
-**Prerequisites:**  [Android Studio](https://developer.android.com/studio)
+---
 
+## Key Features
 
-1. Open Android Studio
-2. Select **Open** and choose the directory containing this project
-3. Allow Android Studio to fix any incompatibilities as it imports the project.
-4. Create a file named `.env` in the project directory and set `GEMINI_API_KEY` in that file to your Gemini API key (see `.env.example` for an example)
-5. Remove this line from the app's `build.gradle.kts` file: `signingConfig = signingConfigs.getByName("debugConfig")`
-6. Run the app on an emulator or physical device
+### AI Face Recognition
+- Fast employee identification using facial biometrics
+- On-device face matching
+- Secure biometric template storage
+
+### Anti-Spoof Liveness Detection
+Multiple verification layers including:
+- Smile detection
+- Eye blink validation
+- Head pose verification
+- Real-time selfie validation
+
+### Employee Enrollment
+- Register employees with unique IDs
+- Multi-angle face capture
+- Secure biometric profile generation
+- Local database storage
+
+### Attendance Tracking
+- Check-In support
+- Check-Out support
+- Real-time verification
+- Instant attendance confirmation
+
+### GPS Location Verification
+- Captures real device GPS coordinates
+- Validates employee presence on-site
+- Stores attendance location history
+
+### Offline First Architecture
+- Works without internet connection
+- Local attendance processing
+- Edge AI inference
+- High-speed verification
+
+### Secure Local Storage
+- AES-256 encrypted database
+- Secure biometric template protection
+- PIN-protected administration access
+
+### Staff Database Management
+- Search employees by ID or name
+- View registered staff profiles
+- Delete employee records
+
+### Attendance Logs
+- Attendance history tracking
+- GPS location records
+- Match confidence scores
+- Check-In and Check-Out logs
+
+### Backup & Synchronization
+- Local database export
+- JSON backup generation
+- Server synchronization support
+
+---
+
+## Security Features
+
+- AES-256 Encrypted Storage
+- Secure PIN Authentication
+- Offline Data Processing
+- Protected Biometric Templates
+- Local Database Isolation
+- Emergency Data Wipe Functionality
+
+---
+
+## Workflow
+
+### Employee Registration
+
+1. Open Enroll Employee
+2. Enter Employee ID and Name
+3. Capture biometric face data
+4. Verify facial signatures
+5. Save profile to local database
+
+### Attendance Verification
+
+1. Open Verify Face Scan
+2. Select Check-In or Check-Out
+3. Face detection starts automatically
+4. AI verifies identity and liveness
+5. GPS location is captured
+6. Attendance log is created
+
+---
+
+## Modules
+
+### Dashboard
+- Registered employee count
+- Daily attendance count
+- System status monitoring
+
+### Verify Face Scan
+- Real-time face verification
+- Liveness detection
+- Attendance logging
+
+### Employee Enrollment
+- Staff registration
+- Biometric profile creation
+
+### Staff Database
+- Employee management
+- Search and delete operations
+
+### Historical Logs
+- Attendance records
+- GPS tracking history
+
+### Settings Wizard
+- Security PIN management
+- GPS diagnostics
+- Backup & sync
+- Database maintenance
+
+---
+
+## Technology Highlights
+
+- Edge AI Processing
+- Facial Recognition
+- Liveness Detection
+- GPS Verification
+- AES-256 Encryption
+- Local SQLite Storage
+- Offline-First Architecture
+
+---
+
+## Use Cases
+
+- Corporate Offices
+- Manufacturing Plants
+- Warehouses
+- Construction Sites
+- Educational Institutions
+- Retail Stores
+- Healthcare Facilities
+- Remote Field Operations
+
+---
+
+## Benefits
+
+- No biometric hardware required
+- Works offline
+- Faster attendance processing
+- Reduced buddy punching
+- GPS-backed verification
+- Enhanced employee accountability
+- Secure local data ownership
+
+---
+
+## Future Enhancements
+
+- Cloud Synchronization
+- Admin Web Dashboard
+- Multi-Device Sync
+- Attendance Analytics
+- Shift Management
+- Leave Management
+- Payroll Integration
+- QR & NFC Support
+
+---
+
+# EdgeAttend AI
+
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+
+AI-Powered Offline Biometric Attendance System.
