@@ -182,6 +182,22 @@ Multiple verification layers including:
 - Payroll Integration
 - QR & NFC Support
 
+## CI/CD Setup
+
+This project uses GitHub Actions for continuous integration and automated releases.
+
+### 1. Configure GitHub Secrets
+To enable automated builds and releases, go to your repository **Settings > Secrets and variables > Actions** and add the following secrets:
+
+- `DEBUG_KEYSTORE_BASE64`: The content of your `debug.keystore.base64` file.
+- `STORE_PASSWORD`: Keystore password (default: `android`).
+- `KEY_ALIAS`: Key alias (default: `androiddebugkey`).
+- `KEY_PASSWORD`: Key password (default: `android`).
+
+### 2. Workflows
+- **Android CI:** Runs on every push to `main` and pull requests. It builds the debug APK, runs tests, and checks linting.
+- **Android Release:** Triggers when a tag starting with `v` is pushed (e.g., `git tag v1.0.0 && git push origin v1.0.0`). It creates a GitHub release with the signed APK.
+
 ---
 
 ## 📸 Screenshots

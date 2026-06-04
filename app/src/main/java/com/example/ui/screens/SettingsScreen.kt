@@ -41,7 +41,6 @@ fun SettingsScreen(navController: NavController, viewModel: AttendanceViewModel)
 
     // Reset Confirmations
     var showResetDialog by remember { mutableStateOf(false) }
-    var backupMessage by remember { mutableStateOf<String?>(null) }
 
     Scaffold(
         topBar = {
@@ -240,53 +239,7 @@ fun SettingsScreen(navController: NavController, viewModel: AttendanceViewModel)
                     }
                 }
 
-                // Section 3: Server Backup & Local Sync to JSON files
-                Card(
-                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-                    colors = CardDefaults.cardColors(containerColor = PureWhite),
-                    shape = RoundedCornerShape(16.dp),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, SlateBorder),
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(imageVector = Icons.Default.Backup, contentDescription = "Sync Server Backup", tint = BluePrimary, modifier = Modifier.size(20.dp))
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text("3. Server Backup & Local Sync", fontWeight = FontWeight.ExtraBold, fontSize = 15.sp, color = BlueNavy)
-                        }
-
-                        Text(
-                            "Export all locally saved records and registered employees which are pending server audit. The system generates structured JSON backup text files, and flags the corresponding database entries as 'completed' without removing them.",
-                            fontSize = 12.sp,
-                            color = SlateTextSecondary,
-                            lineHeight = 16.sp
-                        )
-
-                        Button(
-                            onClick = {
-                                viewModel.backupPendingData(context) { success, msg ->
-                                    if (success) {
-                                        backupMessage = msg
-                                    } else {
-                                        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
-                                    }
-                                }
-                            },
-                            colors = ButtonDefaults.buttonColors(containerColor = BluePrimary),
-                            modifier = Modifier.fillMaxWidth(),
-                            shape = RoundedCornerShape(10.dp)
-                        ) {
-                            Icon(imageVector = Icons.Default.CloudUpload, contentDescription = "Upload", tint = PureWhite, modifier = Modifier.size(16.dp))
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Text("Sync & Export Backup Now", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = PureWhite)
-                        }
-                    }
-                }
-
-                // Section 4: Diagnostic settings and bypass switch panel
+                // Section 3: Diagnostic settings and bypass switch panel
                 Card(
                     elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
                     colors = CardDefaults.cardColors(containerColor = PureWhite),
@@ -301,7 +254,7 @@ fun SettingsScreen(navController: NavController, viewModel: AttendanceViewModel)
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Icon(imageVector = Icons.Default.Dns, contentDescription = "Biometric Bypass", tint = BluePrimary, modifier = Modifier.size(20.dp))
                             Spacer(modifier = Modifier.width(8.dp))
-                            Text("4. Biometric Diagnostic Modes", fontWeight = FontWeight.ExtraBold, fontSize = 15.sp, color = BlueNavy)
+                            Text("3. Biometric Diagnostic Modes", fontWeight = FontWeight.ExtraBold, fontSize = 15.sp, color = BlueNavy)
                         }
 
                         Row(
@@ -392,7 +345,6 @@ fun SettingsScreen(navController: NavController, viewModel: AttendanceViewModel)
             }
         }
 
-        // Master Wipe Confirm dialogue
         if (showResetDialog) {
             AlertDialog(
                 containerColor = PureWhite,
@@ -428,31 +380,6 @@ fun SettingsScreen(navController: NavController, viewModel: AttendanceViewModel)
                         "This process completely destroys all offline staff profiles, face descriptors, and matched check-in verification log logs. Proceed with wipe?",
                         fontSize = 13.sp,
                         color = SlateTextSecondary,
-                        lineHeight = 18.sp
-                    )
-                }
-            )
-        }
-
-        if (backupMessage != null) {
-            AlertDialog(
-                containerColor = PureWhite,
-                onDismissRequest = { backupMessage = null },
-                confirmButton = {
-                    Button(
-                        onClick = { backupMessage = null },
-                        colors = ButtonDefaults.buttonColors(containerColor = BluePrimary),
-                        shape = RoundedCornerShape(10.dp)
-                    ) {
-                        Text("OK", color = PureWhite, fontWeight = FontWeight.Bold)
-                    }
-                },
-                title = { Text("Backup & Sync Status", fontWeight = FontWeight.ExtraBold, color = BlueNavy, fontSize = 18.sp) },
-                text = {
-                    Text(
-                        text = backupMessage ?: "",
-                        fontSize = 13.sp,
-                        color = SlateTextPrimary,
                         lineHeight = 18.sp
                     )
                 }

@@ -21,7 +21,11 @@ jobs:
 
     - name: Decode Keystore
       run: |
-        echo "${{ secrets.DEBUG_KEYSTORE_BASE64 }}" | base64 --decode > debug.keystore
+        if [ -n "${{ secrets.DEBUG_KEYSTORE_BASE64 }}" ]; then
+          echo "${{ secrets.DEBUG_KEYSTORE_BASE64 }}" | base64 --decode > debug.keystore
+        elif [ -f debug.keystore.base64 ]; then
+          base64 --decode debug.keystore.base64 > debug.keystore
+        fi
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
