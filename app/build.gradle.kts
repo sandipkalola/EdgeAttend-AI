@@ -11,7 +11,7 @@ android {
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.aistudio.edgeattendai.wqbxps"
+    applicationId = "com.sk.edgeattend"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
@@ -44,7 +44,7 @@ android {
       signingConfig = signingConfigs.getByName("release")
     }
     debug {
-      signingConfig = signingConfigs.getByName("debugConfig")
+      // Use default debug signing config
     }
   }
   compileOptions {
