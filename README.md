@@ -184,6 +184,11 @@ Multiple verification layers including:
 
 ---
 
+## 📸 Screenshots
+
+
+<img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_1.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_2.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_3.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_4.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_5.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_6.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_7.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_8.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_8.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_10.jpeg?raw=true" height = "500px"> <img src="https://github.com/sandipkalola/EdgeAttend-AI/blob/main/assets/img_11.jpeg?raw=true" height = "500px">
+
 # EdgeAttend AI
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
