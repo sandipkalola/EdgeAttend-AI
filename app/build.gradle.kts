@@ -1,8 +1,12 @@
+import java.util.Properties
+
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.kotlin.compose)
   alias(libs.plugins.google.devtools.ksp)
   alias(libs.plugins.roborazzi)
+  alias(libs.plugins.google.services)
+  alias(libs.plugins.firebase.crashlytics)
   alias(libs.plugins.secrets)
 }
 
@@ -14,19 +18,34 @@ android {
     applicationId = "com.sk.edgeattend"
     minSdk = 24
     targetSdk = 36
-    versionCode = 1
-    versionName = "1.0"
+    versionCode = 3
+    versionName = "1.2"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   signingConfigs {
     create("release") {
-      val keystorePath = System.getenv("KEYSTORE_PATH") ?: "${rootDir}/my-upload-key.jks"
+      val localProperties = Properties()
+      val propertiesFile = rootProject.file("local.properties")
+      if (propertiesFile.exists()) {
+        localProperties.load(propertiesFile.inputStream())
+      }
+
+      val keystorePath = localProperties.getProperty("RELEASE_STORE_FILE")
+          ?: System.getenv("KEYSTORE_PATH") 
+          ?: "D:/keystoreFile/EdgeAttend.jks"
       storeFile = file(keystorePath)
-      storePassword = System.getenv("STORE_PASSWORD")
-      keyAlias = "upload"
-      keyPassword = System.getenv("KEY_PASSWORD")
+      
+      storePassword = localProperties.getProperty("RELEASE_STORE_PASSWORD")
+          ?: System.getenv("STORE_PASSWORD")
+      
+      keyAlias = localProperties.getProperty("RELEASE_KEY_ALIAS")
+          ?: System.getenv("KEY_ALIAS") 
+          ?: "EdgeAttend"
+          
+      keyPassword = localProperties.getProperty("RELEASE_KEY_PASSWORD")
+          ?: System.getenv("KEY_PASSWORD")
     }
     create("debugConfig") {
       storeFile = file("${rootDir}/debug.keystore")
@@ -90,6 +109,8 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.room.ktx)
   implementation(libs.androidx.room.runtime)
+  implementation(libs.firebase.analytics)
+  implementation(libs.firebase.crashlytics)
   implementation(libs.coil.compose)
   implementation(libs.converter.moshi)
   // implementation(libs.firebase.ai)

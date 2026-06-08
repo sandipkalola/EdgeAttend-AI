@@ -189,14 +189,21 @@ This project uses GitHub Actions for continuous integration and automated releas
 ### 1. Configure GitHub Secrets
 To enable automated builds and releases, go to your repository **Settings > Secrets and variables > Actions** and add the following secrets:
 
+#### For Continuous Integration (CI):
 - `DEBUG_KEYSTORE_BASE64`: The content of your `debug.keystore.base64` file.
-- `STORE_PASSWORD`: Keystore password (default: `android`).
-- `KEY_ALIAS`: Key alias (default: `androiddebugkey`).
-- `KEY_PASSWORD`: Key password (default: `android`).
+
+#### For Automated Releases:
+- `RELEASE_KEYSTORE_BASE64`: The base64-encoded content of your `EdgeAttend.jks` file.
+- `RELEASE_STORE_PASSWORD`: Keystore password.
+- `RELEASE_KEY_ALIAS`: Key alias.
+- `RELEASE_KEY_PASSWORD`: Key password.
+
+> **Tip:** You can generate the base64 string for your keystore using:
+> `certutil -encode EdgeAttend.jks tmp.txt && type tmp.txt` (Windows) or `base64 EdgeAttend.jks` (Linux/Mac).
 
 ### 2. Workflows
-- **Android CI:** Runs on every push to `main` and pull requests. It builds the debug APK, runs tests, and checks linting.
-- **Android Release:** Triggers when a tag starting with `v` is pushed (e.g., `git tag v1.0.0 && git push origin v1.0.0`). It creates a GitHub release with the signed APK.
+- **Android CI:** Runs on every push to `main`. It builds the debug APK, runs tests, and checks linting.
+- **Android Release:** Triggers when a tag starting with `v` is pushed (e.g., `git tag v1.2.0 && git push origin v1.2.0`). It builds the signed **AAB** and creates a GitHub release.
 
 ---
 
