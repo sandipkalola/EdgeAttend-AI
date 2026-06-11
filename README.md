@@ -2,6 +2,7 @@
 
 AI-Powered Offline Biometric Attendance System
 
+[![Get it on Google Play](https://img.shields.io/badge/Google%20Play-Download-success?style=for-the-badge&logo=google-play)](https://play.google.com/store/apps/details?id=com.sk.edgeattend)
 ## Overview
 
 EdgeAttend AI is a secure, offline-first attendance management solution that leverages facial recognition, anti-spoof liveness detection, GPS verification, and encrypted local storage to accurately record employee attendance.
